@@ -1,0 +1,34 @@
+﻿@using AHLVBShopUI.Core.Model
+@model DepartmentViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Departmanlar</h1>
+<a class="btn btn-primary mb-3" asp-action="AddDepartment">Departman Ekle</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Departman Adı</td>
+            <td>Şirket Adı</td>
+            <td>İşlemler</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Departments)
+        {
+            <tr>
+                <td>@item.DepartmentName</td>
+                <td>@item.CompanyName</td>
+                <td>
+                    
+                    <a href="/Department/UpdateDepartment/@item.Id" class="badge alert-danger">Güncelle</a>
+                    <a href="/Department/RemoveDepartment/@item.Id" class="badge alert-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

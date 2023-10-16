@@ -1,0 +1,36 @@
+﻿@using AHLVBShopUI.Core.DTO.Brand
+@model BrandDTO
+
+@{
+    ViewData["Title"] = "UpdateBrand";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h1>Marka Güncelle</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateBrand" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" />
+
+            <div class="form-group">
+                <label hidden="hidden" asp-for="Id" >@Model.Id</label>
+                <input hidden="hidden" asp-for="Id" class="form-control" />
+
+                <label asp-for="BrandName">Marka Adı</label>
+                <input asp-for="BrandName" class="form-control" />
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+                <a class="btn btn-info" asp-action="Index">Markalara geri dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,39 @@
+﻿@using AHLVBShopUI.Core.Model
+@model ProductViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ürünler</h1>
+<a class="btn btn-primary mb-3" asp-action="AddProduct">Ürün Ekle</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Ürün Adı</td>
+            <td>Marka</td>
+            <td>Kategori</td>
+            <td>İşlemler</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.BrandName</td>
+                <td>@item.CategoryName</td>
+                <td>
+                    @* <a asp-action="/UpdateDepartment" asp-route-id="@item.Id" class="badge alert-info">Düzenle</a> *@
+                    <a href="/Product/UpdateProduct/@item.Id" class="badge alert-danger">Güncelle</a>
+                    <a href="/Product/RemoveProduct/@item.Id" class="badge alert-danger">Sil</a>
+                </td>
+                <td>
+                    @* <a href="/Department/RemoveDepartment/@item.Id" class="badge alert-danger">Sil</a> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

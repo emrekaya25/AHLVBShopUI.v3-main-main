@@ -1,0 +1,56 @@
+﻿@using AHLVBShopUI.Core.DTO.Category
+@model List<CategoryDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="header-title">
+                        <h4 class="card-title">Kategoriler</h4>
+                    </div>
+
+                </div>
+                <div class="card-body">
+
+                    <div id="table" class="table-editable">
+                        <span class="table-add float-right mb-3 mr-2">
+                            <a href="/Category/AddCategory" class="btn-sm mr-2 btn btn-primary" type="submit">Kategori Ekle</a>
+
+                        </span>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td contenteditable="false" >@item.CategoryName</td>
+                                        <td>
+                                            <form asp-controller="Category" asp-action="UpdateCategory" method="get">
+                                                <input type="hidden" name="Id" value="@item.Id" />
+                                                <button class="btn-sm mr-1 btn btn-warning" type="submit">Güncelle</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <a href="/Category/RemoveCategory/@item.Id" class="btn-sm mr-1 btn btn-danger">Sil</a>
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

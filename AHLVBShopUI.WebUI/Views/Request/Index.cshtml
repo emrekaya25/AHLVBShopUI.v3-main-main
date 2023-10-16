@@ -1,0 +1,225 @@
+﻿@using AHLVBShopUI.Core.Model
+@model RequestViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-primary mb-3" asp-action="AddRequest">İstek Yap</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="header-title">
+                        <h4 class="card-title">Teklifler</h4>
+                    </div>
+
+                </div>
+                <div class="card-body">
+
+                    <div id="table" class="table-editable">
+
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <h5 class="card-title">Onay Bekleyenler</h5>
+                            <thead>
+                                <tr>
+                                    <th>İstek sahibi</th>
+                                    <th>Ürün</th>
+                                    <th>Durumu</th>
+                                    <th>Detay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model == null)
+                                {
+
+                                }
+                                else
+                                {
+                                    @foreach (var item in Model.Requests)
+                                    {
+                                        if (item.Status == "Onay Bekliyor.")
+                                        {
+                                            <tr>
+                                                <td contenteditable="true">@item.EmployeeName</td>
+                                                <td contenteditable="true">@item.ProductName</td>
+                                                <td contenteditable="true">@item.Status</td>
+@*                                                 <td>
+                                                    <form asp-controller="Request" asp-action="UpdateRequest" method="get">
+                                                        <input type="hidden" name="ID" value="@item.Id" />
+                                                        <button class="btn-sm mr-2 btn btn-warning" type="submit">Detay</button>
+                                                    </form>
+                                                </td> *@
+                                                <td><a href="/Request/UpdateRequest/@item.Id" class="btn btn-warning">Detay</a></td>
+
+                                            </tr>
+                                        }
+
+
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <h5 class="card-title">Onaylananlar</h5>
+                            <thead>
+                                <tr>
+                                    <th>İstek Sahibi</th>
+                                    <th>Ürün</th>
+                                    <th>Durumu</th>
+                                    <th>Detay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model == null)
+                                {
+
+                                }
+                                else
+                                {
+                                    @foreach (var item in Model.Requests)
+                                    {
+                                        if (item.Status == "Onaylandı")
+                                        {
+                                            <tr>
+                                                <td contenteditable="true">@item.EmployeeName</td>
+                                                <td contenteditable="true">@item.ProductName</td>
+                                                <td contenteditable="true">@item.Status</td>
+                                                <td>
+@*                                                     <form asp-controller="Request" asp-action="UpdateRequest" method="get">
+                                                        <input type="hidden" name="ID" value="@item.Id" />
+                                                        <button class="btn-sm mr-2 btn btn-warning" type="submit">Detay</button>
+                                                    </form>  *@
+                                                    
+                                                </td>
+                                                <td> <a href="/Request/UpdateRequest/@item.Id" class="btn-sm mr-2 btn btn-warning">Detay</a></td>
+                                            </tr>
+                                            
+                                        }
+
+
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <h5 class="card-title">Reddedilenler</h5>
+                            <thead>
+                                <tr>
+                                    <th>İstek Sahibi</th>
+                                    <th>Ürün</th>
+                                    <th>Durumu</th>
+                                    <th>Detay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model == null)
+                                {
+
+                                }
+                                else
+                                {
+                                    @foreach (var item in Model.Requests)
+                                    {
+                                        if (item.Status == "Reddedildi")
+                                        {
+                                            <tr>
+                                                <td contenteditable="true">@item.EmployeeName</td>
+                                                <td contenteditable="true">@item.ProductName</td>
+                                                <td contenteditable="true">@item.Status</td>
+                                                <td>
+                                                    <form asp-controller="Request" asp-action="UpdateRequest" method="get">
+                                                        <input type="hidden" name="ID" value="@item.Id" />
+                                                        <button class="btn-sm mr-2 btn btn-warning" type="submit">Detay</button>
+                                                    </form>
+                                                </td>
+
+                                            </tr>
+                                        }
+
+
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <h1>İstekler</h1>
+<a class="btn btn-primary mb-3" asp-action="AddRequest">İstek Yap</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>İstek</td>
+            <td>Ürün</td>
+            <td>Açıklama</td>
+            <td>İstek Yapan Çalışan</td>
+            <td>Durum</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Requests)
+        {
+            <tr>
+
+                <td>@item.RequestTitle</td>
+                <td>@item.ProductName</td>
+                <td>@item.Description</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.Status</td>
+                
+
+@*                 <td>
+                    <a asp-action="/UpdateDepartment" asp-route-id="@item.Id" class="badge alert-info">Düzenle</a> 
+                                         <a href="/Employee/UpdateEmployee/@item.Id" class="badge alert-danger">Güncelle</a>
+                <a href="/Employee/RemoveEmployee/@item.Id" class="badge alert-danger">Sil</a>
+                </td> *@
+                @*<td>
+                    <a href="/Request/RemoveRequest/@item.Id" class="badge alert-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 
+                *@
+

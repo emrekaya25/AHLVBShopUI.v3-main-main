@@ -1,0 +1,44 @@
+﻿@using AHLVBShopUI.Core.Model
+@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Çalışanlar</h1>
+@* <a class="btn btn-primary mb-3" asp-action="AddEmployee">Çalışan Ekle</a> *@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Çalışan</td>
+            <td>Email</td>
+            <td>Adres</td>
+            <td>Şirket Adı</td>
+            <td>Departman Adı</td>
+            <td>Unvan</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employees)
+        {
+            <tr>
+                <td>@item.EmployeeFirstName @item.EmployeeLastName</td>
+                <td>@item.Email</td>
+                <td>@item.Address</td>
+                <td>@item.CompanyName</td>
+                <td>@item.DepartmentName</td>
+                <td>@item.RoleName</td>
+                <td>
+                    @* <a asp-action="/UpdateDepartment" asp-route-id="@item.Id" class="badge alert-info">Düzenle</a> *@
+@*                     <a href="/Employee/UpdateEmployee/@item.Id" class="badge alert-danger">Güncelle</a>
+                    <a href="/Employee/RemoveEmployee/@item.Id" class="badge alert-danger">Sil</a> *@
+                </td>
+                <td>
+                    @* <a href="/Department/RemoveDepartment/@item.Id" class="badge alert-danger">Sil</a> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,15 @@
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\bin\Debug\net7.0\AHLVBShopUI.Helper.deps.json
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\bin\Debug\net7.0\AHLVBShopUI.Helper.dll
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\bin\Debug\net7.0\AHLVBShopUI.Helper.pdb
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\bin\Debug\net7.0\AHLVBShopUI.Core.dll
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\bin\Debug\net7.0\AHLVBShopUI.Core.pdb
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\AHLVBShopUI.Helper.csproj.AssemblyReference.cache
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\AHLVBShopUI.Helper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\AHLVBShopUI.Helper.AssemblyInfoInputs.cache
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\AHLVBShopUI.Helper.AssemblyInfo.cs
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\AHLVBShopUI.Helper.csproj.CoreCompileInputs.cache
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\AHLVBShopUI.Helper.csproj.CopyComplete
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\AHLVBShopUI.Helper.dll
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\refint\AHLVBShopUI.Helper.dll
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\AHLVBShopUI.Helper.pdb
+C:\Users\nemrekaya\Desktop\AHLVBShopUI\AHLVBShopUI.Helper\obj\Debug\net7.0\ref\AHLVBShopUI.Helper.dll

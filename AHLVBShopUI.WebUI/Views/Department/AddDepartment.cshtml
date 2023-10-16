@@ -1,0 +1,60 @@
+﻿@using AHLVBShopUI.Core.Model
+@model DepartmentViewModel
+@{
+	ViewData["Title"] = "AddDepartment";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Departman Ekle</h1>
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="AddDepartment" method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger" />
+
+			<div class="form-group">
+				<label hidden="hidden" asp-for="Id">Departman Adı</label>
+				<input hidden="hidden" asp-for="Id" class="form-control" />
+
+				<label asp-for="DepartmentName">Departman Adı</label>
+				<input asp-for="DepartmentName" class="form-control" />
+				<span asp-validation-for="DepartmentName" class="text-danger"></span>
+
+				<label asp-for="PhoneNumber">Telefon Numarası</label>
+				<input asp-for="PhoneNumber" class="form-control" />
+				<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+				<label asp-for="Address">Adres</label>
+				<input asp-for="Address" class="form-control" />
+				<span asp-validation-for="Address" class="text-danger"></span>
+
+				<label asp-for="Email">Email</label>
+				<input asp-for="Email" class="form-control" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label>Şirket Adı</label>
+				<select class="form-control" name="CompanyID">
+					@foreach (var item in Model.Companies)
+					{
+						<option value="@item.Id">@item.CompanyName</option>
+						
+						
+					}
+					@foreach (var item in Model.Companies)
+					{
+						<input hidden="hidden" asp-for="CompanyName" value="@item.CompanyName" class="form-control" />
+					}
+					
+
+
+				</select>
+			</div>
+
+
+			<div class="form-group">
+				<input type="submit" value="Ekle" class="btn btn-primary" />
+				<a class="btn btn-info" asp-action="Index">Listeye geri dön</a>
+			</div>
+		</form>
+	</div>
+</div> 

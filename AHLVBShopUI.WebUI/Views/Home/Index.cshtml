@@ -1,0 +1,16 @@
+﻿@using AHLVBShopUI.Core.DTO.User
+@model UserDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var AdSoyad = TempData["AdSoyad"] as string;
+}
+
+<h1 >Sisteme hoş geldiniz : @AdSoyad </h1>
+
+
+
+

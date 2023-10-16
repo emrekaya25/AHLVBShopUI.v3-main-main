@@ -1,0 +1,63 @@
+﻿@using AHLVBShopUI.Core.DTO.Company
+@model List<CompanyDTO>
+@{
+	ViewData["Title"] = "Şirket İşlemleri";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="header-title">
+                        <h4 class="card-title">Şirketler</h4>
+                    </div>
+
+                </div>
+                <div class="card-body">
+
+                    <div id="table" class="table-editable">
+                        <span class="table-add float-right mb-3 mr-2">
+                            <a href="/Company/AddCompany" class="btn-sm mr-2 btn btn-primary" type="submit">Şirket Ekle</a>
+
+                        </span>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Şirket</th>
+                                    <th>Email</th>
+                                    <th>Adres</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td contenteditable="false">@item.CompanyName</td>
+                                        <td contenteditable="false">@item.Email</td>
+                                        <td contenteditable="false">@item.Address</td>
+                                        @*                                         <td>
+                                    <button class="btn-sm mr-2 btn btn-primary" type="submit">Detay</button>
+
+                                    </td> *@
+                                        <td>
+                                            <form asp-controller="Company" asp-action="UpdateCompany" method="get">
+                                                <input type="hidden" name="Id" value="@item.Id" />
+                                                <button class="btn-sm mr-2 btn btn-warning" type="submit">Güncelle</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <a href="/Company/RemoveCompany/@item.Id" class="btn-sm mr-2 btn btn-danger">Sil</a>
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

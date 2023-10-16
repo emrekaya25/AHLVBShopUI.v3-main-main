@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AHLVBShopUI.Core", "AHLVBShopUI.Core\AHLVBShopUI.Core.csproj", "{97227852-53A3-4826-811E-5C48B9801854}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AHLVBShopUI.WebUI", "AHLVBShopUI.WebUI\AHLVBShopUI.WebUI.csproj", "{3657EC16-7AF6-4B0A-B7A4-C2A3F26B74FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97227852-53A3-4826-811E-5C48B9801854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97227852-53A3-4826-811E-5C48B9801854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97227852-53A3-4826-811E-5C48B9801854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97227852-53A3-4826-811E-5C48B9801854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3657EC16-7AF6-4B0A-B7A4-C2A3F26B74FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3657EC16-7AF6-4B0A-B7A4-C2A3F26B74FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3657EC16-7AF6-4B0A-B7A4-C2A3F26B74FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3657EC16-7AF6-4B0A-B7A4-C2A3F26B74FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F62D1AF0-5B32-428F-B223-0FDD372466A2}
+	EndGlobalSection
+EndGlobal
