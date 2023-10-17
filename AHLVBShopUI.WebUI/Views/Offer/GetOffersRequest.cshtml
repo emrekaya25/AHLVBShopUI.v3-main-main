@@ -1,0 +1,109 @@
+﻿@using AHLVBShopUI.Core.DTO.Request
+@model RequestDTO
+@{
+	ViewData["Title"] = "GetOffersRequest";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+	var AdSoyad = TempData["AdSoyad"] as string;
+	var Id = TempData["Id"] as string;
+}
+
+
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<div asp-validation-summary="ModelOnly" class="text-danger" />
+
+		<div class="form-group">
+			<label hidden="hidden" asp-for="Id">İstek</label>
+			<input hidden="hidden" asp-for="Id" class="form-control" />
+
+			<label asp-for="RequestTitle">İstek Başlığı</label>
+			<input disabled="disabled" asp-for="RequestTitle" class="form-control" />
+			<span asp-validation-for="RequestTitle" class="text-danger"></span>
+
+			<label asp-for="Description">Açıklama</label>
+			<input disabled="disabled" asp-for="Description" class="form-control" />
+			<span asp-validation-for="Description" class="text-danger"></span>
+
+
+			<label hidden="hidden" asp-for="EmployeeId"></label>
+			<input hidden="hidden" asp-for="EmployeeId" value="@Id" class="form-control" />
+
+			<label hidden="hidden" asp-for="EmployeeName"></label>
+			<input hidden="hidden" asp-for="EmployeeName" value="@AdSoyad" class="form-control" />
+
+			<label hidden="hidden" asp-for="ProductName"></label>
+			<input hidden="hidden" asp-for="ProductName" value="@Model.ProductName" class="form-control" />
+
+
+			<label hidden="hidden" asp-for="ProductId"></label>
+			<input hidden="hidden" asp-for="ProductId" value="@Model.ProductId" class="form-control" />
+
+
+
+
+		</div>
+
+
+
+
+
+		<div class="form-group">
+			<button type="button" data-target=".bd-example-modal-lg" data-toggle="modal" class="btn btn-primary">Teklif Yap</button>
+			<a class="btn btn-info" asp-action="Index">Listeye geri dön</a>
+		</div>
+
+
+
+	</div>
+	<div class="col-md-3"></div>
+
+</div>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Teklif Oluştur</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form action="/Offer/AddOffer" method="post">
+					<div class="form-group">
+						<label for="exampleInputText1">Fiyat </label>
+						<input name="Price" type="number" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="exampleInputText1">Açıklama </label>
+						<textarea name="OfferDescription" class="form-control" aria-label="With textarea" placeholder="Teklif Açıklaması Giriniz"></textarea>
+
+					</div>
+					<input hidden="hidden" name="RequestId" value="@Model.Id" type="text" class="form-control">
+					<input hidden="hidden" name="RequestName" value="@Model.RequestTitle" type="text" class="form-control">
+					<input hidden="hidden" name="Status" value="Değerlendiriliyor" type="text" class="form-control" />
+					<input hidden="hidden" name="UserId" value="@Id" type="text" class="form-control" />
+					<input hidden="hidden" name="UserName" value="@AdSoyad" type="text" class="form-control" />
+					<input hidden="hidden" name="Id" value="@Model.Id" type="text" class="form-control" />
+
+
+
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+						<button type="submit" class="btn btn-primary">Teklif Oluştur</button>
+					</div>
+				</form>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+		

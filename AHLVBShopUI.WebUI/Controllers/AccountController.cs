@@ -47,6 +47,16 @@ namespace AHLVBShopUI.WebUI.Controllers
                 TempData["Token"] = Token;
                 TempData.Keep("Token");
 
+                HttpContext.Session.SetString("Role", responseObject.Data.RoleId);
+                var Role = HttpContext.Session.GetString("Role");
+                TempData["Role"] = Role;
+                TempData.Keep("Role");
+
+                HttpContext.Session.SetString("Id", responseObject.Data.Id);
+                var Id = HttpContext.Session.GetString("Id");
+                TempData["Id"] = Id;
+                TempData.Keep("Id");
+
 
 
                 return RedirectToAction("Index", "Home");
@@ -72,9 +82,27 @@ namespace AHLVBShopUI.WebUI.Controllers
 
             if (responseObject.Data != null)
             {
+				HttpContext.Session.SetString("AdSoyad", responseObject.Data.AdSoyad);
+				var AdSoyad = HttpContext.Session.GetString("AdSoyad");
+				TempData["AdSoyad"] = AdSoyad;
+				TempData.Keep("AdSoyad");
 
+				HttpContext.Session.SetString("Token", responseObject.Data.Token);
+				var Token = HttpContext.Session.GetString("Token");
+				TempData["Token"] = Token;
+				TempData.Keep("Token");
 
-                return RedirectToAction("Index", "Home");
+				HttpContext.Session.SetString("Role", responseObject.Data.RoleId);
+				var Role = HttpContext.Session.GetString("Role");
+				TempData["Role"] = Role;
+				TempData.Keep("Role");
+
+				HttpContext.Session.SetString("Id", responseObject.Data.Id);
+				var Id = HttpContext.Session.GetString("Id");
+				TempData["Id"] = Id;
+				TempData.Keep("Id");
+
+				return RedirectToAction("Index", "Home");
             }
 
             //Session

@@ -17,5 +17,7 @@ namespace AHLVBShopUI.Core.DTO.Login
         public string Adres { get; set; }
         public string Token { get; set; }
         public string DepartmentName { get; set; }
+        public string RoleId { get; set; }
+        public string Id { get; set; }
     }
 }

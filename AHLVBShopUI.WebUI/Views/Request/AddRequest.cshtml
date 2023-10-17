@@ -4,6 +4,10 @@
     ViewData["Title"] = "AddRequest";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+	var AdSoyad = TempData["AdSoyad"] as string;
+	var Id = TempData["Id"] as string;
+}
 <h1>İstek Ekle</h1>
 <div class="row">
 	<div class="col-md-4">
@@ -27,22 +31,12 @@
 				<input hidden="hidden" asp-for="Status" value="Onay Bekliyor." class="form-control" />
 				<span hidden="hidden" asp-validation-for="Status" class="text-danger"></span>
 
-			</div>
-			<div class="form-group">
-				<label>İsteği yapan kişi</label>
-				<select class="form-control" name="EmployeeID">
-					@foreach (var item in Model.Employees)
-					{
-						<option value="@item.Id">@item.EmployeeUserName</option>
+				<label hidden="hidden" asp-for="EmployeeId"></label>
+				<input hidden="hidden" asp-for="EmployeeId" value="@Id" class="form-control" />
 
+				<label hidden="hidden" asp-for="EmployeeName"></label>
+				<input hidden="hidden" asp-for="EmployeeName" value="@AdSoyad" class="form-control" />
 
-
-					}
-					@foreach (var item in Model.Employees)
-					{
-						<input hidden="hidden" asp-for="EmployeeName" value="@item.EmployeeUserName" class="form-control" />
-					}
-				</select>
 			</div>
 
 			<div class="form-group">
@@ -55,12 +49,16 @@
 
 
 					}
-					@foreach (var item in Model.Employees)
+					@foreach (var item in Model.Products)
 					{
-						<input hidden="hidden" asp-for="ProductName" value="@item.Id" class="form-control" />
+						<input hidden="hidden" asp-for="ProductName" value="@item.ProductName class="form-control" />
 					}
 				</select>
 			</div>
+
+
+
+
 
 
 			<div class="form-group">

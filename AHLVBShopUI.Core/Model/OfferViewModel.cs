@@ -14,5 +14,14 @@ namespace AHLVBShopUI.Core.Model
         public List<OfferDTO> Offers { get; set; }
         public List<UserDTO> Users { get; set; }
         public List<RequestDTO> Requests { get; set; }
-    }
+		public Guid Id { get; set; }
+		public string OfferDescription { get; set; }
+		public string Price { get; set; }
+		public string Status { get; set; }
+		public Guid UserId { get; set; }
+		public string UserName { get; set; }
+
+		public string RequestName { get; set; }
+		public Guid RequestId { get; set; }
+	}
 }

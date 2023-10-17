@@ -1,8 +1,13 @@
-﻿@using AHLVBShopUI.Core.Model
-@model RequestViewModel
+﻿@using AHLVBShopUI.Core.DTO.Request
+@model RequestDTO
 @{
 	ViewData["Title"] = "UpdateRequest";
 	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+	var AdSoyad = TempData["AdSoyad"] as string;
+	var Id = TempData["Id"] as string;
 }
 
 <div class="row">
@@ -24,44 +29,24 @@
 				<span asp-validation-for="Description" class="text-danger"></span>
 
 
-				<label hidden="hidden" asp-for="Status"></label>
-				<input hidden="hidden" asp-for="Status" value="Onay Bekliyor." class="form-control" />
-				<span hidden="hidden" asp-validation-for="Status" class="text-danger"></span>
+				<label hidden="hidden" asp-for="EmployeeId"></label>
+				<input hidden="hidden" asp-for="EmployeeId" value="@Id" class="form-control" />
 
-			</div>
-			<div class="form-group">
-				<label>İsteği yapan kişi</label>
-				<select class="form-control" name="EmployeeId">
-					@foreach (var item in Model.Employees)
-					{
-						<option value="@item.Id">@item.Id</option>
+				<label hidden="hidden" asp-for="EmployeeName"></label>
+				<input hidden="hidden" asp-for="EmployeeName" value="@AdSoyad" class="form-control" />
+
+				<label hidden="hidden" asp-for="ProductName"></label>
+				<input hidden="hidden" asp-for="ProductName" value="@Model.ProductName" class="form-control" />
 
 
+				<label hidden="hidden" asp-for="ProductId"></label>
+				<input hidden="hidden" asp-for="ProductId" value="@Model.ProductId" class="form-control" />
 
-					}
-					@foreach (var item in Model.Employees)
-					{
-						<input hidden="hidden" asp-for="EmployeeName" value="@item.Id" class="form-control" />
-					}
-				</select>
+
+
+
 			</div>
 
-			<div class="form-group">
-				<label>Ürün</label>
-				<select class="form-control" name="ProductID">
-					@foreach (var item in Model.Products)
-					{
-						<option value="@item.Id">@item.ProductName</option>
-
-
-
-					}
-					@foreach (var item in Model.Employees)
-					{
-						<input hidden="hidden" asp-for="ProductName" value="@item.Id" class="form-control" />
-					}
-				</select>
-			</div>
 
 			<div class="form-group">
 				<label for="exampleInputText1">Durum </label>

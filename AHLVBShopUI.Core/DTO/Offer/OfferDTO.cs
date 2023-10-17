@@ -10,7 +10,11 @@ namespace AHLVBShopUI.Core.DTO.Offer
     {
         public Guid Id { get; set; }
         public string OfferDescription { get; set; }
-        public Guid UserId { get; set; }
+		public string Price { get; set; }
+		public string Status { get; set; }
+		public Guid UserId { get; set; }
         public string UserName { get; set; }
-    }
+		public string RequestName { get; set; }
+		public Guid RequestId { get; set; }
+	}
 }

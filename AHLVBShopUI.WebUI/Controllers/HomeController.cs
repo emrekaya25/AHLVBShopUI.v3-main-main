@@ -11,10 +11,12 @@ namespace AHLVBShopUI.WebUI.Controllers
         [HttpGet("/Anasayfa")]
         public IActionResult Index()
         {
+			var AdSoyad = HttpContext.Session.GetString("AdSoyad");
+			TempData["AdSoyad"] = AdSoyad;
+			TempData.Keep("AdSoyad");
 
-            
 
-            return View();
+			return View();
         }
     }
 }

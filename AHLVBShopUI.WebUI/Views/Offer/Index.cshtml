@@ -1,0 +1,82 @@
+﻿@using AHLVBShopUI.Core.Model
+@model OfferViewModel
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+	var AdSoyad = TempData["AdSoyad"] as string;
+	var Id = TempData["Id"] as string;
+}
+
+@* <a class="btn btn-primary mb-3" asp-action="AddOffer"></a> *@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-header d-flex justify-content-between">
+					<div class="header-title">
+						<h4 class="card-title">Teklifler</h4>
+					</div>
+
+				</div>
+				<div class="card-body">
+
+					<div id="table" class="table-editable">
+
+						<table class="table table-bordered table-responsive-md table-striped text-center">
+							<h5 class="card-title">Onaylananlar</h5>
+							<thead>
+								<tr>
+									<th>İstek Sahibi</th>
+									<th>İstek</th>
+									<th>Ürün</th>
+									<th>Durumu</th>
+									<th>Detay</th>
+								</tr>
+							</thead>
+							<tbody>
+								@if (Model == null)
+								{
+
+								}
+								else
+								{
+									@foreach (var item in Model.Requests)
+									{
+										if (item.Status == "Teklife Açık")
+										{
+											<tr>
+												<td contenteditable="true">@item.EmployeeName</td>
+												<td contenteditable="true">@item.RequestTitle</td>
+												<td contenteditable="true">@item.ProductName</td>
+												<td contenteditable="true">@item.Status</td>
+												<td contenteditable="true">@item.Description</td>
+												<td>
+													@*                                                     <form asp-controller="Request" asp-action="UpdateRequest" method="get">
+										<input type="hidden" name="ID" value="@item.Id" />
+										<button class="btn-sm mr-2 btn btn-warning" type="submit">Detay</button>
+										</form>  *@
+													@* <a href="/Offer/AddOffer" class="btn-sm mr-2 btn btn-warning">Teklif Yap</a> *@
+													
+
+												</td>
+												<td> <a href="/Offer/GetOffersRequest/@item.Id" class="btn-sm mr-2 btn btn-warning">Detay</a></td>
+											</tr>
+
+										}
+
+
+									}
+								}
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

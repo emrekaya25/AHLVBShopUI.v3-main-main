@@ -1,0 +1,98 @@
+﻿@using AHLVBShopUI.Core.Model
+@model RequestViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="header-title">
+                        <h4 class="card-title">Teklifler</h4>
+                    </div>
+                    <span>
+
+                    </span>
+
+                </div>
+
+                <div class="card-body">
+
+                    <div id="table" class="table-editable">
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                            <h5 class="card-title">Onaylananlar</h5>
+                            <thead>
+                                <tr>
+                                    <th>İstek Sahibi</th>
+                                    <th>İstek</th>
+                                    <th>Ürün</th>
+                                    <th>Detay</th>
+                                    <th>Durumu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model == null)
+                                {
+
+                                }
+                                else
+                                {
+                                    @foreach (var item in Model.Requests)
+                                    {
+                                        if (item.Status == "Onaylandı")
+                                        {
+                                            <tr>
+                                                <td contenteditable="false">@item.EmployeeName</td>
+                                                <td contenteditable="false">@item.RequestTitle</td>
+                                                <td contenteditable="false">@item.ProductName</td>
+                                                <td contenteditable="false">@item.Description</td>
+                                                <td contenteditable="false">@item.Status</td>
+
+                                                @*                                                     <form asp-controller="Request" asp-action="UpdateRequest" method="get">
+                                    <input type="hidden" name="ID" value="@item.Id" />
+                                    <button class="btn-sm mr-2 btn btn-warning" type="submit">Detay</button>
+                                    </form>  *@
+                                                <td>
+                                                    <a href="/Request/UpdateRequest/@item.Id" class="btn btn-warning">Detay</a>
+                                                </td>
+
+
+                                                @* <td> <a href="/Request/UpdateRequest/@item.Id" class="btn-sm mr-2 btn btn-warning">Detay</a></td> *@
+                                            </tr>
+
+                                        }
+
+
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

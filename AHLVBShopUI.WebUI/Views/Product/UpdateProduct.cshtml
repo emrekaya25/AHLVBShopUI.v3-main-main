@@ -1,0 +1,49 @@
+﻿@using AHLVBShopUI.Core.DTO.Product
+@model ProductDTO
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>UpdateProduct</h1>
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="UpdateProduct" method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger" />
+
+			<div class="form-group">
+				<label hidden="hidden" asp-for="Id">Ürün Adı</label>
+				<input hidden="hidden" asp-for="Id" class="form-control" />
+
+				<label asp-for="ProductName">Ürün Adı</label>
+				<input asp-for="ProductName" class="form-control" />
+				<span asp-validation-for="ProductName" class="text-danger"></span>
+
+				<label asp-for="Price">Fiyat</label>
+				<input asp-for="Price" class="form-control" />
+				<span asp-validation-for="Price" class="text-danger"></span>
+
+				<label asp-for="Description">Açıklama</label>
+				<input asp-for="Description" class="form-control" />
+				<span asp-validation-for="Description" class="text-danger"></span>
+
+				<label asp-for="Quantity">Miktar</label>
+				<input asp-for="Quantity" class="form-control" />
+				<span asp-validation-for="Quantity" class="text-danger"></span>
+
+				<input hidden="hidden" name="BrandName" value="@Model.BrandName" class="form-control" />
+				<input hidden="hidden" asp-for="BrandId"></>
+
+				<input hidden="hidden" name="CategoryName" value="@Model.CategoryName" class="form-control" />
+				<input hidden="hidden" asp-for="CategoryId"></>
+
+
+
+				<div class="form-group">
+					<input type="submit" value="Güncelle" class="btn btn-primary" />
+					<a class="btn btn-info" asp-action="Index">Listeye geri dön</a>
+				</div>
+		</form>
+	</div>
+</div>
+

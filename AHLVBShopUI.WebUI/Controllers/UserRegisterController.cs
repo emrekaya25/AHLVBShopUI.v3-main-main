@@ -7,6 +7,7 @@ using RestSharp;
 
 namespace AHLVBShopUI.WebUI.Controllers
 {
+    
     public class UserRegisterController : Controller
     {
         
@@ -28,7 +29,7 @@ namespace AHLVBShopUI.WebUI.Controllers
             var body = JsonConvert.SerializeObject(user);
             request.AddBody(body, "application/json");
             RestResponse response = await client.ExecuteAsync(request);
-            var responseObject = JsonConvert.DeserializeObject<ApiResult<UserDTO>>(response.Content);
+            //var responseObject = JsonConvert.DeserializeObject<ApiResult<UserDTO>>(response.Content);
 
             if (response.IsSuccessStatusCode)
             {
